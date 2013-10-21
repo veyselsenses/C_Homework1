@@ -1,0 +1,86 @@
+#include <stdio.h>
+
+void main ()
+{
+	/*hesaptaki bakiye, seçim, banka işlemleri ve girdiler 
+	  bu bölümde tanımlanmıştır  */
+	int hesapBakiye=500,seciminiz,ekleme,cikarma,gonderme,ibanNo;
+	char kullaniciAdi[20],kisiAdi[20],sifre[20];
+
+	//kullanıcı adi ve şifre kullanıcıdan alınır 
+	printf("Kullanici Adi : ");
+	scanf("%s",&kullaniciAdi);
+	printf("Sifre         : ");
+	scanf("%s",&sifre);
+
+	//Kullanıcı yapmak istediği işlem için bir tuşa basmalıdır
+	printf("Isleminiz icin bir tusa basiniz...\n\n");
+	printf("Hesabinizdaki para miktari icin.........1\n\n");
+	printf("Hesabiniza para eklemek icin............2\n\n");
+	printf("Hesabinizdan para cekmek icin...........3\n\n");
+	printf("Hesabinizdan para gondermek icin........4\n\n");
+	printf("Cikis...................................5\n\n");
+
+	/*kullanıcı yapmak istediği işlemi 
+	seçtikten sonra işlem bu bölümde yaptırılır */
+	printf("seciminiz icin bir tusa basiniz....\n\n");
+	printf("seciminiz : ");
+	scanf("%d",&seciminiz);
+	printf("\n\n");
+
+	if(seciminiz==1)
+	{
+		printf("Hesabinizdaki Para Miktari : %d\n\n",hesapBakiye);
+	}
+	else if(seciminiz==2)
+	{
+		printf("eklemek istediginiz para miktari :");
+		scanf("%d",&ekleme);
+		hesapBakiye=hesapBakiye + ekleme;
+		printf("Hesabinizdaki Para Miktari : %d\n\n",hesapBakiye);
+	}
+	else if(seciminiz==3)
+	{
+		printf("cekmek istediginiz para miktari :");
+		scanf("%d",&cikarma);
+		if(hesapBakiye>=cikarma)
+		{
+			hesapBakiye=hesapBakiye - cikarma;
+			printf("Hesabinizdaki Para Miktari : %d\n\n",hesapBakiye);
+		}
+		else
+	{
+		printf("cekebileceginiz maksimum para mikatari : %d\n\n",hesapBakiye);
+	}
+	}
+	else if(seciminiz==4)
+	{
+		printf("gondermek istediginiz para miktari :");
+		scanf("%d",&gonderme);
+		printf("\n");
+		printf("Para gondermek istediginiz kisi adi :");
+		scanf("%s",&kisiAdi);
+		printf("\n");
+		printf("Kisinin iban numarasi :");
+		scanf("%d",&ibanNo);
+		printf("\n");
+		if(hesapBakiye>=gonderme)
+		{
+		hesapBakiye=hesapBakiye - gonderme;
+		printf("Hesabinizdaki Para Miktari : %d\n\n",hesapBakiye);
+		printf("para transferi basariyla tamamlanmistir\n\n");
+	
+		}
+		else
+			printf("Gondereceginiz maksimum para miktari : %d\n\n",hesapBakiye);
+	}
+	else if(seciminiz==5)
+	{
+		printf("Isleminiz bitmistir...\n\ntesekkurler\ntesekkurler\n");
+	}
+	else
+	{
+		printf("Sectiginiz tus hicbir islem icermemektedir...\n\n");
+	}
+
+}	
