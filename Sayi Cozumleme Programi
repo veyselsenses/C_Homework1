@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+void main ()
+{
+	//alinacak sayı ve basamak degeri(i) tanımlanır
+	int sayi,i;
+	// 4 basamaklı sayı kullanıcıdan alınır
+	printf("Dort basamakli bir sayi giriniz :");
+	scanf("%d",&sayi);
+	printf("\n");
+    
+	//sayının 4 basamaklı olup olmadığı kontrol edilir ve sonuç ekrana yansır
+	if(sayi<=9999 && sayi>999)
+	{
+		printf("Girdiginiz sayi : %d\n\n",sayi);
+		i=sayi/1000; //alınan sayının basamak değerini bulur
+		printf("%d tane binlik vardir\n\n",i);
+		sayi=sayi-i*1000; //sayinin 1000 lik kısmını siler
+		i=sayi/100; // sayida kaç 100 lük olduğunu bulur
+		printf("%d tane yuzluk vardir\n\n",i);
+		sayi=sayi-i*100; //sayinin 100 lük kısmını siler
+		i=sayi/10; //sayida kaç tane 20 luk olduğunu bulur
+		printf("%d tane onluk vardir\n\n",i);
+		sayi=sayi-i*10;
+		i=sayi/1;
+		printf("%d tane birlik vardir\n\n",i);
+	}
+	else //sayi 4 basamaklı değilse 4 basamaklı olmadığını belirtir
+	{
+		printf("Girdiginiz sayi 4 basamakli degildir...\n\n");
+	}
+
+}
